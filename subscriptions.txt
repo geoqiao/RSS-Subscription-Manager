@@ -1,0 +1,3 @@
+Randy's Blog	https://lutaonan.com/rss.xml
+Blogs on Xiaowen.Z Deployed	https://xiaowenz.com/blog/index.xml
+RSS feed of geoqiao's gitblog	https://raw.githubusercontent.com/geoqiao/gitblog/main/feed.xml
