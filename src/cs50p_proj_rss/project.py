@@ -1,21 +1,22 @@
-import feedparser
 import sys
+
+import feedparser
 
 
 def main():
     command = sys.argv[1]
-    command_list = ['add', 'remove', 'list', 'articles', 'help']
+    command_list = ["add", "remove", "list", "articles", "help"]
     if command not in command_list:
         sys.exit("Invalid command")
-    elif command in ['add', 'remove', 'articles']:
+    elif command in ["add", "remove", "articles"]:
         url = sys.argv[2].strip()
-        if command == 'add':
+        if command == "add":
             add_sub(url)
-        elif command == 'remove':
+        elif command == "remove":
             remove_sub(url)
         else:
             list_all_article(url)
-    elif command == 'list':
+    elif command == "list":
         list_all_sub()
     else:
         help_center()
@@ -42,7 +43,7 @@ def remove_sub(url):
 
     # 找到指定链接的订阅。
     for i in range(len(lines)):
-        if lines[i].split("\t")[1] == url+'\n':
+        if lines[i].split("\t")[1] == url + "\n":
             lines.pop(i)
             break
 
@@ -68,19 +69,34 @@ def list_all_article(url):
     """
     d = feedparser.parse(url)
     for n in range(0, len(d.entries)):
-        d.entries[n]['id'] = n+1
-        print(f"[{n+1}]", d.entries[n].title, d.entries[n].link, '\n')
-        if d.entries[n]['id'] > 9:
-            break
+        if n <= 9:
+            print(f"[{n+1}]", d.entries[n].title, d.entries[n].link, "\n")
 
     sys.stdout.write("请输入文章编号： ")
     ID = int(input())
-    print("Article Title: ", d.entries[ID-1].title, "\n", "Article Link: ", d.entries[ID-1].link, "\n", "Article Published Date", d.entries[ID-1].published, "\n")
+    print(
+        "Article Title: ",
+        d.entries[ID - 1].title,
+        "\n",
+        "Article Link: ",
+        d.entries[ID - 1].link,
+        "\n",
+        "Article Published Date",
+        d.entries[ID - 1].published,
+        "\n",
+    )
 
 
 def help_center():
-    print("Add rss feed: python project.py add <feed link>", "\n", "Remove rss feed: python project.py remove <feed link>",
-          "\n", "List all added feeds: python project list", "\n", "List articles: python project.py articles <feed link>")
+    print(
+        "Add rss feed: python project.py add <feed link>",
+        "\n",
+        "Remove rss feed: python project.py remove <feed link>",
+        "\n",
+        "List all added feeds: python project list",
+        "\n",
+        "List articles: python project.py articles <feed link>",
+    )
 
 
 if __name__ == "__main__":
