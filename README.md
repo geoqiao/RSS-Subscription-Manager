@@ -43,6 +43,10 @@ phthon project.py articles https://raw.githubusercontent.com/geoqiao/gitblog/mai
 - When listing all RSS subscriptions, the names of all subscriptions will be displayed.
 - When showing all articles of a specified RSS subscription, the titles and links of all articles will be displayed. Users can enter the article number to view detailed information.
 
+## TODO
+- [ ] Support exporting to a CSV file.
+- [ ] Fix the bug that displays the earliest 10 articles.
+
 ## Contributions
 
 Contributions to the RSS Subscription Manager are welcome. You can contribute in the following ways:
