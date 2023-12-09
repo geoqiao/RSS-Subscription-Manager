@@ -18,7 +18,7 @@ Where `command` is the command and `url` is the URL of the RSS subscription.
 
 - `add`：Add an RSS subscription.
 - `remove`：Remove an RSS subscription.
-- `list`：Lists all subscribed RSS feeds.
+- `feeds`：Lists all subscribed RSS feeds.
 - `articles`：Show  all  articles of your RSS subscriptions.
 
 **Examples:**
