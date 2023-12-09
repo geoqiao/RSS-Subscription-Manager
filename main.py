@@ -60,6 +60,7 @@ class FeedList(object):
 
 
 def write_row_to_csv(feed: Feed, csv_name="subscription.csv"):
+    """Add feed to local csv"""
     if not os.path.exists(csv_name):
         # create the CSV file when it doesn't exists
         with open(csv_name, "w", newline="") as csvfile:
@@ -72,6 +73,7 @@ def write_row_to_csv(feed: Feed, csv_name="subscription.csv"):
 
 
 def del_row_in_csv(feed: Feed, csv_name="subscription.csv"):
+    """Remove feeds from local csv"""
     if not os.path.exists(csv_name):
         sys.exit("no such file")
     df_feed = pd.read_csv(csv_name)
@@ -87,6 +89,7 @@ def del_row_in_csv(feed: Feed, csv_name="subscription.csv"):
 
 
 def help_center():
+    """Help you to use this python script"""
     print(
         "Add rss feed: python main.py add <feed link>",
         "\n",
@@ -99,6 +102,7 @@ def help_center():
 
 
 def main():
+    """Too complex, I will improve main function"""
     if len(sys.argv) == 1:
         help_center()
         sys.exit()
